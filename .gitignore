@@ -1,0 +1,6 @@
+shdtt.iml
+hw123/target/
+hw123/*.in
+hw123/project/*
+!hw123/project/assembly.sbt
+idris/*.ibc
