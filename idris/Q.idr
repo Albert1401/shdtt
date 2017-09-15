@@ -114,21 +114,3 @@ pr_transEqQ (MkQ (MkZ a b) c) (MkQ (MkZ d e) f) (MkQ (MkZ g h) i) (ReflQ (ReflZ 
 
 setQ : Setoid
 setQ = MkSetoid Q EqQ (EqualityProof pr_reflEqQ pr_symEqQ pr_transEqQ)
-
-mulQ : Q -> Q -> Q
-mulQ (MkQ az b) (MkQ cz d) = MkQ (az `mulZZ` cz) ((S b) * (S d) - 1)
-
-addQ : Q -> Q -> Q
-addQ (MkQ az b) (MkQ cz d) = MkQ ((az `mulZNat` (S d)) `addZZ` (cz `mulZNat` (S b))) ((S b) * (S d) - 1)
-subQ : Q -> Q -> Q
-subQ a (MkQ b c) = addQ a (MkQ (negZ b) c)
--- divQ : Q -> Q -> (d = e -> Void) -> Q
--- divQ (MkQ az c) (MkQ (bz @ (MkZ d e)) f) (eq)
-  -- if d - e > 0 then MkQ (az `mulZNat` (S f)) ((S c) * (d - e) - 1)
-  -- else MkQ ((negZ az) `mulZNat` (S f)) ((S c) * (e - d) - 1)
--- divQ ()
-
-
-    -- (a - b) * (S f)
-    ----------------------
-    -- (S c)   * (d - e)
