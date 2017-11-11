@@ -30,7 +30,7 @@ object HW2 {
 
   def main(args: Array[String]): Unit = {
     try {
-      val (expr, rmap) = makeVarsUnique(LambdaPackratParser.parse(Source.fromFile("./task2.in").mkString).get)
+      val (expr, rmap) = makeVarsUnique(LambdaPackratParser.parse(Source.fromFile("task2.in").mkString).get)
       freevs = getFreeVars(Set.empty, expr).map(v => v -> newVar).toMap
       var t = makeSystem(expr)
       val sbst = solveSystem(system)

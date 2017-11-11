@@ -80,7 +80,7 @@ object HW1 {
   }
 
   def main(args: Array[String]): Unit = {
-    var e = LambdaPackratParser.parse(Source.fromFile("./task1.in").mkString).get
+    var e = LambdaPackratParser.parse(Source.fromFile("task1.in").mkString).get
     var b = true
     while (b) {
       reduction(e) match {

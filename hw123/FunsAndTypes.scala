@@ -72,6 +72,8 @@ object FunsAndTypes {
         vmap(v1)
       } else v1
       case Impl(l, r) => Impl(subst(vmap, l), subst(vmap, r))
+      case QAll(v, qe) if vmap contains v => throw new RuntimeException("jagajaga")
+      case QAll(v, qe)=> QAll(v, subst(vmap, qe))
     }
   }
 
@@ -179,11 +181,11 @@ object FunsAndTypes {
     }
   }
 
-//  def main(args : Array[String]): Unit ={
-//    val bf = new ArrayBuffer[(SimpleType, SimpleType)]()
-//    bf.+=(Var(0) -> Var(2))
-//    bf.+=(Var(0) -> Var(1))
-//    solveSystem(bf)
-//  }
+  def main(args : Array[String]): Unit ={
+    val bf = new ArrayBuffer[(SimpleType, SimpleType)]()
+    bf.+=(Var(0) -> Var(2))
+    bf.+=(Var(0) -> Var(1))
+    solveSystem(bf)
+  }
 
 }
